@@ -1,0 +1,7 @@
+### Main Playbook for common_packages role
+# file: roles/common_packages/tasks/main.yml
+
+---
+
+- include: packages_install.yml
+

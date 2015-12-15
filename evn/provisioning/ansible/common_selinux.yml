@@ -1,0 +1,5 @@
+## Playbook for "Common Selinux" Role
+# file: common_selinux.yml
+- hosts: common_selinux
+  roles:
+    - common_selinux

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd">
+  <talendfile:ContextType confirmationNeeded="false" name="linux">
+    <contextParameter comment="" name="etlinterfacefolder" prompt="etlinterfacefolder?" promptNeeded="false" type="id_String" value="/data/yema-etl/interfaces"/>
+    <contextParameter comment="" name="etlroot" prompt="etlroot?" promptNeeded="false" type="id_String" value="/data/yema-etl"/>
+    <contextParameter comment="" name="mediationfolder" prompt="mediationfolder?" promptNeeded="false" type="id_String" value="/data/yema-etl/mediation"/>
+    <contextParameter comment="" name="propertiesfolder" prompt="propertiesfolder?" promptNeeded="false" type="id_String" value="/data/yema-etl/properties"/>
+  </talendfile:ContextType>
+  <talendfile:ContextType confirmationNeeded="false" name="windows">
+    <contextParameter comment="" name="etlinterfacefolder" prompt="etlinterfacefolder?" promptNeeded="false" type="id_String" value="C:\Users\mhill\git\yema\etl\dataload"/>
+    <contextParameter comment="" name="etlroot" prompt="etlroot?" promptNeeded="false" type="id_String" value="C:\Users\mhill\git\yema\etl"/>
+    <contextParameter comment="" name="mediationfolder" prompt="mediationfolder?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="propertiesfolder" prompt="propertiesfolder?" promptNeeded="false" type="id_String" value="C:\Users\mhill\git\yema\etl\properties"/>
+  </talendfile:ContextType>
+</xmi:XMI>

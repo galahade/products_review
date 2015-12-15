@@ -1,0 +1,31 @@
+## Handlers for the install_redis playbook
+# file: roles/install_redis/handlers/main.yml
+
+# Restart Redis daemon handler
+- name: restart redis
+  service: >
+    name={{ redis_service }}
+    state=restarted
+  tags: redis
+
+# Restart Syslog daemon handler
+- name: restart rsyslog
+  service: >
+    name=rsyslog
+    state=restarted
+  tags: redis
+
+# CentOs/RHEL IP tables save Handler
+- name: save iptables
+  command: service iptables save
+  sudo: true
+  tags: redis
+
+# Restart IPtables daemon Handler
+- name: restart iptables
+  service: >
+    name=iptables
+    state=restarted
+  sudo: true
+  tags: redis
+

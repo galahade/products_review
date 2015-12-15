@@ -1,0 +1,5 @@
+## Playbook for "Common Ntp" Role
+# file: common_ntp.yml
+- hosts: common_ntp
+  roles:
+    - common_ntp

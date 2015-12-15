@@ -1,0 +1,82 @@
+### Install Playbook for install_redis role
+# file: roles/install_redis/tasks/redis_install.yml
+
+# Installs Redis package
+#- name: Install Redis packages
+#  yum: >
+#    pkg={{item }}
+#    state=installed
+#  with_items:
+#    - libselinux-python
+#    - redis30u
+#  tags: redis
+
+# Installs Redis package
+- name: Install Redis packages
+  shell: "yum install -y {{ item }}"
+  with_items:
+    - libselinux-python
+    - redis30u
+  tags: redis
+
+# Ensure rsyslog is available if specified
+#- name: Install rsyslog package
+#  yum: >
+#    pkg=rsyslog
+#    state=installed
+#  when: redis_syslog_enabled == "yes"
+#  tags: redis
+
+# Ensure rsyslog is available if specified
+- name: Install rsyslog package
+  shell: "yum install -y rsyslog"
+  when: redis_syslog_enabled == "yes"
+  tags: redis
+
+# Ensure the Redis DB directory exists
+- name: Ensure Redis DB directory exists
+  file: >
+    path={{ redis_db_dir }}
+    group=redis
+    owner=redis
+    mode=755
+    state=directory
+  tags: redis
+
+# Copy the Redis template
+- name: Copy the redis configuration file 
+  template: >
+    src=redis.conf.j2
+    dest=/etc/redis.conf
+  notify: 
+    - restart redis 
+  tags: redis
+
+# Copy the Redis Syslog configuration template
+- name: Copy the rsyslogd configuration file for redis filter
+  template: >
+    src=rsyslogd.conf.j2
+    dest=/etc/rsyslog.d/redis.conf
+  when: redis_syslog_enabled == "yes"
+  notify:
+    - restart rsyslog
+  tags: redis
+
+# Set the vm.overcommit_memory parameter
+#  Note ignoreerrors flag required to handle a change in sysctl behaviour
+#  See: https://github.com/ansible/ansible/issues/6272
+- name: Set the kernel parameter for vm overcommit 
+  sysctl: >
+    name=vm.overcommit_memory
+    value={{ redis_overcommit_memory }}
+    state=present
+    ignoreerrors=yes
+  tags: redis
+
+# Daemonise and start the redis service
+- name: Start the redis service
+  service: >
+    name={{ redis_service }}
+    state=started
+    enabled=yes
+  tags: redis

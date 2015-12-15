@@ -1,0 +1,29 @@
+### Main Playbook for common_selinux role
+# file: roles/common_selinux/tasks/main.yml
+
+---
+
+# Installs pre-req packages for configuring (selinux)
+#- name: Required Package installation
+#  yum: >
+#    pkg={{ item }}
+#    state=present
+#  with_items:
+#    - libsemanage-python
+#    - libselinux-python
+#  tags: Selinux
+
+# Installs pre-req packages for configuring (selinux)
+- name: Required Package installation
+  shell: "yum install -y {{ item }}"
+  with_items:
+    - libsemanage-python
+    - libselinux-python
+  tags: Selinux
+
+# Sets SELINUX configuration
+- name: Set selinux level
+  selinux: >
+    policy={{selinux_policy}}
+    state={{selinux_state}}
+  tags: Selinux

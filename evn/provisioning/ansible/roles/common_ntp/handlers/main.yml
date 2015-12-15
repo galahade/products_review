@@ -1,0 +1,16 @@
+### Handlers for common_ntp playbook
+# file: roles/common_nmtp/handlers/main.yml
+
+---
+
+# CentOs/RHEL IP tables save Handler
+- name: save iptables
+  command: service iptables save
+  sudo: true
+
+# Restart IPtables daemon Handler
+- name: restart iptables
+  service: >
+    name=iptables
+    state=restarted
+  sudo: true

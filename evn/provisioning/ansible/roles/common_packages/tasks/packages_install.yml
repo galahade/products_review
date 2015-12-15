@@ -1,0 +1,23 @@
+### Install Playbook for common packages role
+# file: roles/common_packages/tasks/packages_install.yml
+
+---
+
+## Install common packages
+#- name: Install Common packages
+#  yum: >
+#    name={{ item }}
+#    state=latest
+#  with_items: common_package_list
+#  tags: commonpackages
+
+## Install common packages
+- name: Install Common packages
+  shell: "yum install -y {{ item }}"
+  with_items: common_package_list
+  tags: commonpackages
+  
+## Install packages necessary for vmware-tools & vagrant
+- name: Install Development Tools
+  shell: yum groupinstall -y 'Development Tools'
+  when: vagrant == 'true'

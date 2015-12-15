@@ -1,0 +1,16 @@
+driftfile /var/lib/ntp/drift
+
+restrict -4 default nomodify nopeer noquery notrap
+restrict -6 default nomodify nopeer noquery notrap
+
+restrict 127.0.0.1 
+restrict -6 ::1
+
+server 0.uk.pool.ntp.org
+server 1.uk.pool.ntp.org
+server 2.uk.pool.ntp.org
+server 3.uk.pool.ntp.org
+
+includefile /etc/ntp/crypto/pw
+
+keys /etc/ntp/keys

@@ -1,0 +1,12 @@
+### Users Playbook for Install_Redis role
+# file: roles/install_redis/tasks/redis_users.yml
+
+---
+
+# Add system groups for Percona
+- name: Add Redis Admin group
+  group: >
+    name={{ redis_admin_group }}
+    state=present
+  tags: redis
+

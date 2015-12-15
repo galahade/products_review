@@ -1,0 +1,123 @@
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl:com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl: Invalid Content-Type:text/html. Is this an error message instead of a SOAP response?
+main ERROR updateorderstatus_0_5.UpdateOrderStatus - error could not move file to archive - file may not exists
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - java.lang.RuntimeException:The source File "E:/projects/yema/etl/dataload/orders/in/orders_status_update.csv" does not exist or is not a file.
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 6
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - can't connect to ftp localhost
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 4
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Another Job is running... exiting
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 4
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Another Job is running... exiting
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 4
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Another Job is running... exiting
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - com.jcraft.jsch.SftpException:No such file
+main ERROR updateorderstatus_0_5.UpdateOrderStatus - error could not move file to archive - file may not exists
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - java.lang.RuntimeException:The source File "E:/projects/yema/etl/dataload/orders/in/orders_status_update.csv" does not exist or is not a file.
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - com.jcraft.jsch.SftpException:No such file
+main ERROR updateorderstatus_0_5.UpdateOrderStatus - error could not move file to archive - file may not exists
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - java.lang.RuntimeException:The source File "E:/projects/yema/etl/dataload/orders/in/orders_status_update.csv" does not exist or is not a file.
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl:com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl: Message send failed
+main ERROR updateorderstatus_0_5.UpdateOrderStatus - error could not move file to archive - file may not exists
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - java.lang.RuntimeException:The source File "E:/projects/yema/etl/dataload/orders/in/orders_status_update.csv" does not exist or is not a file.
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job completed successfully...
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job completed successfully...
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job completed successfully...
+main ERROR updateorderstatus_0_5.UpdateOrderStatus - error could not move file to archive - file may not exists
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - java.lang.RuntimeException:The source File "E:/projects/yema/etl/dataload/orders/in/orders_status_update.csv" does not exist or is not a file.
+main ERROR updateorderstatus_0_5.UpdateOrderStatus - error could not move file to archive - file may not exists
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 1
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - java.lang.RuntimeException:The source File "E:/projects/yema/etl/dataload/orders/in/orders_status_update.csv" does not exist or is not a file.
+main WARN  updateorderstatus_0_5.UpdateOrderStatus - Job completed with warnings... 
+main WARN  updateorderstatus_0_5.UpdateOrderStatus - true
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 42
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - no file to process on ftp yema-systest.salmon-cloud.com  ./upload/local/orders/in
+main WARN  updateorderstatus_0_5.UpdateOrderStatus - Job completed with warnings... 
+main WARN  updateorderstatus_0_5.UpdateOrderStatus - true
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job completed successfully...
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 6
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - can't connect to ftp yema-systest.salmon-cloud.com
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 4
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Another Job is running... exiting
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 6
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - can't connect to ftp yema-systest.salmon-cloud.com
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 6
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - can't connect to ftp yema-systest.salmon-cloud.com
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 6
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - can't connect to ftp yema-systest.salmon-cloud.com
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 7
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - can't remove ftp file ./upload/local/orders/in/orders_status_update.csv
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job failed with error... 
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - 4
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Another Job is running... exiting
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - shipped Soap Input - status update yema.updateorderstatus_0_5.UpdateOrderStatus$row31Struct@10abcb3[Soap=<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:Magento" SOAP-ENV:encodingStyle=""><SOAP-ENV:Body><ns1:multiCall><sessionId xsi:type="">dfcc3c5f0e86287a01364081ee08ab4c</sessionId><calls SOAP-ENC:arrayType="" xsi:type=""><item SOAP-ENC:arrayType="" xsi:type=""><item>sales_order.addComment</item><item SOAP-ENC:arrayType="" xsi:type=""><item>100000054</item><item>shipped</item><item>etl status update after s/rfc</item></item></item></calls><options xsi:nil=""/></ns1:multiCall></SOAP-ENV:Body></SOAP-ENV:Envelope>]
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job completed successfully...
+main INFO  updateorderstatus_0_5.UpdateOrderStatus - Job completed successfully...
+2015-10-20 14:48:45;HL1fKc;HL1fKc;HL1fKc;LOCAL_PROJECT;UpdateOrderStatus;windows;3;tWarn;tWarn_4;no file to process on ftp www.yema.salmon.ltd.uk  ./upload/local/orders/in;42
+2015-10-20 14:50:04;qiiAJi;qiiAJi;qiiAJi;LOCAL_PROJECT;UpdateOrderStatus;windows;3;tWarn;tWarn_4;no file to process on ftp www.yema.salmon.ltd.uk  ./upload/local/orders/in;42
+2015-10-20 14:52:25;oo0JWB;oo0JWB;oo0JWB;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:01:04;62cWtT;62cWtT;62cWtT;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:01:11;62cWtT;62cWtT;62cWtT;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:01:11;62cWtT;62cWtT;62cWtT;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:22:36;5EbLtI;5EbLtI;5EbLtI;LOCAL_PROJECT;UpdateOrderStatus;windows;3;tWarn;tWarn_4;no file to process on ftp www.yema.salmon.ltd.uk  ./upload/local/orders/in;42
+2015-10-20 15:32:37;X5av4K;X5av4K;X5av4K;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:32:37;X5av4K;X5av4K;X5av4K;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:38:15;v5Ylik;v5Ylik;v5Ylik;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:38:15;v5Ylik;v5Ylik;v5Ylik;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:42:30;fsWKpj;fsWKpj;fsWKpj;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:42:30;fsWKpj;fsWKpj;fsWKpj;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:43:29;GrvqNy;GrvqNy;GrvqNy;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:43:29;GrvqNy;GrvqNy;GrvqNy;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:47:09;bWLLgW;bWLLgW;bWLLgW;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:47:09;bWLLgW;bWLLgW;bWLLgW;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:48:24;QIpamA;QIpamA;QIpamA;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:48:24;QIpamA;QIpamA;QIpamA;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:48:57;CkwPSx;CkwPSx;CkwPSx;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:48:57;CkwPSx;CkwPSx;CkwPSx;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:50:07;RCbFY3;RCbFY3;RCbFY3;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:50:07;RCbFY3;RCbFY3;RCbFY3;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:53:34;IuMCuV;IuMCuV;IuMCuV;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:53:42;NIhuqM;NIhuqM;NIhuqM;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:53:42;NIhuqM;NIhuqM;NIhuqM;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:53:45;IuMCuV;IuMCuV;IuMCuV;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tLogCatcher_1;java.net.SocketException:Software caused connection abort: socket write error;1
+2015-10-20 15:53:45;IuMCuV;IuMCuV;IuMCuV;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:54:10;KO8Tkg;KO8Tkg;KO8Tkg;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:54:10;KO8Tkg;KO8Tkg;KO8Tkg;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:55:33;VQTCaU;VQTCaU;VQTCaU;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:55:33;VQTCaU;VQTCaU;VQTCaU;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 15:57:41;ErKtBQ;ErKtBQ;ErKtBQ;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 15:57:42;ErKtBQ;ErKtBQ;ErKtBQ;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 16:38:36;l58PJs;l58PJs;l58PJs;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 16:38:36;l58PJs;l58PJs;l58PJs;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 16:47:40;ckQRM8;ckQRM8;ckQRM8;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tRunJob_1;java.lang.RuntimeException:Child job running failed;1
+2015-10-20 16:47:40;ckQRM8;ckQRM8;ckQRM8;LOCAL_PROJECT;UpdateOrderStatus;windows;6;Java Exception;tFTPConnection_1;com.jcraft.jsch.JSchException:Auth cancel;1
+2015-10-20 18:06:01;HsDY7J;HsDY7J;HsDY7J;LOCAL_PROJECT;UpdateOrderStatus;windows;3;tWarn;tWarn_4;no file to process on ftp www.yema.salmon.ltd.uk  /orders/in;42
+2015-10-27 13:53:06;WUJUrm;WUJUrm;WUJUrm;LOCAL_PROJECT;UpdateOrderStatus;windows;3;tWarn;tWarn_4;no file to process on ftp www.yema.salmon.ltd.uk  /orders/in;42

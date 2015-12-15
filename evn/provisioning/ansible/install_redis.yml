@@ -1,0 +1,6 @@
+## Playbook for "install_redis" Role
+# file: install_redis.yml
+- hosts: install_redis
+  roles:
+    - install_redis
+

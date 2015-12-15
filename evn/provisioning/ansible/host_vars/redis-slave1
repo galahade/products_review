@@ -1,0 +1,402 @@
+## HOST_VARS for development Vagrant Image
+---
+
+ansible_ssh_host: 192.168.56.111
+
+ansible_ssh_user: vagrant
+
+ansible_ssh_private_key_file: ~/.vagrant.d/insecure_private_key
+
+project_key: redis
+
+server_admin_email: yyang@salmon.com
+
+vagrant: "true"
+
+auto_deployment: false
+
+db_versioning: false
+
+env: dev-vagrant
+
+######################
+## Repositories Default Configuration
+######################
+
+# Only enable IUS for a Vagrant Image, provision.sh handles EPEL earlier in the process
+repository_environment_name: PUBLICCLOUD_CENTOS
+enable_rhel: false
+enable_epel: false
+enable_ius: true
+
+######################
+## HOSTS Configuration
+######################
+
+etc_hosts_entries:
+  siteurl:
+    ipstring: "{{ ansible_eth1.ipv4.address }}"
+    hoststring: "{{ mvp_apache_servername }} mysql-prod js.yema.salmon.ltd.uk media.yema.salmon.ltd.uk skin.yema.salmon.ltd.uk"
+
+############################
+## ETL API Details
+############################
+
+yema_etl_svc_user_sgroups: "{{ yema_etl_admgrp }},{{ yema_sftp_accessgroup }},nginxadm"
+
+############################
+## ETL API Details
+############################
+yema_etl_api_username: soapapiuser
+yema_etl_api_password: User4Api
+yema_etl_api_endpoint: www.yema.salmon.ltd.uk 
+
+############################
+## ETL SFTP Details
+############################
+yema_etl_sftp_enable: "true"
+yema_etl_sftp_host: localhost
+yema_etl_sftp_user: vagrant
+yema_etl_sftp_pass: vagrant
+yema_etl_sftp_port: 22
+yema_etl_sftp_folder: "./upload/local/"
+
+######################
+## Apache Configuration
+######################
+
+## Apache ServerName directive value
+mvp_apache_servername: www.yema.salmon.ltd.uk 
+
+## IP restrictions for the backend
+magento_admin_ipaddress_whitelist:
+  - 192.168.56.0/24
+  - 172.17.28.0/24
+  - 127.0.0.1
+
+#mvp_apache_ssl_certificates:
+#  - mycert.crt
+#  - mycertCA.crt
+#mvp_apache_ssl_keys:
+#  - mycert.key
+#mvp_apache_cert_filename: mycert.crt
+#mvp_apache_key_filename: mycert.key
+#mvp_apache_ca_filename: mycertCA.crt
+
+######################
+## Nginx Configuration
+######################
+
+## Vhost details for nginx
+nginx_vhosts:                                                           ## mvp_nginx role
+  vhost_www.yema:
+    nginx_servername: www.yema.salmon.ltd.uk
+    nginx_shortname: www.yema
+    nginx_cert_filename:
+    nginx_key_filename:
+    nginx_listen_ip: 
+    nginx_http_port: 80
+    nginx_https_port: 443  
+    nginx_fastcgi_pass_ip: 127.0.0.1
+    nginx_fastcgi_pass_port: 9000  
+    nginx_proxy_pass:
+    nginx_cache_expires_js: 30d
+    nginx_cache_expires_media: 30d
+    nginx_cache_expires_skin: 30d        
+  vhost_kz.yema:
+    nginx_servername: kz.yema.salmon.ltd.uk
+    nginx_shortname: kz.yema
+    nginx_cert_filename:
+    nginx_key_filename:
+    nginx_listen_ip: 
+    nginx_http_port: 80
+    nginx_https_port: 443  
+    nginx_fastcgi_pass_ip: 127.0.0.1
+    nginx_fastcgi_pass_port: 9000  
+    nginx_proxy_pass:
+    nginx_cache_expires_js: 30d
+    nginx_cache_expires_media: 30d
+    nginx_cache_expires_skin: 30d        
+  vhost_kg.yema:
+    nginx_servername: kg.yema.salmon.ltd.uk
+    nginx_shortname: kg.yema
+    nginx_cert_filename:
+    nginx_key_filename:
+    nginx_listen_ip: 
+    nginx_http_port: 80
+    nginx_https_port: 443  
+    nginx_fastcgi_pass_ip: 127.0.0.1
+    nginx_fastcgi_pass_port: 9000  
+    nginx_proxy_pass:
+    nginx_cache_expires_js: 30d
+    nginx_cache_expires_media: 30d
+    nginx_cache_expires_skin: 30d        
+
+
+#mvp_nginx_key_filename: mycert.key                                     ## mvp_nginx role
+#mvp_nginx_cert_filename: mycert.crt                                    ## mvp_nginx role
+
+#mvp_ssl_certificates:                                                  ## mvp_certificates role
+#  - mycert.crt
+#  - mycertCA.crt
+#mvp_ssl_keys:                                                          ## mvp_certificates role
+#  - mycert.key
+
+## Ensure these are uncommented when using nginx
+unix_magento_user: nginx                                                ## mvp_magento_deploy
+unix_magento_group: nginx                                               ## mvp_magento_deploy
+
+# IP address whitelist allowed to bypass the holding page
+mvp_nginx_holding_page_whitelist:
+  - 192.168.56.0/24
+  - 172.17.28.0/24
+  - 127.0.0.1
+
+############################
+## Varnish
+############################
+
+mvp_varnish_backends:
+  - name: mvp_magento_backend
+    ip: 127.0.0.1
+    port: 80
+
+mvp_varnish_listen_port: 81
+
+mvp_varnish_vhosts:
+  - name: media_frontend
+    hostname: media.yema.salmon.ltd.uk
+    backend: mvp_magento_backend
+    host_header: www.yema.salmon.ltd.uk
+  - name: skin_frontend
+    hostname: skin.yema.salmon.ltd.uk
+    backend: mvp_magento_backend
+    host_header: www.yema.salmon.ltd.uk
+  - name: js_frontend
+    hostname: js.yema.salmon.ltd.uk
+    backend: mvp_magento_backend 
+    host_header: www.yema.salmon.ltd.uk
+      
+##################
+## Solr Details
+##################
+
+mvp_solr_cores:
+  mvp_catalog_core:
+    name: catalog
+    instancedir: core-catalog
+
+##################
+## MySQL Details
+##################
+
+## Enable SSL for network communications
+enable_ssl_mysql: false
+
+# Name for updated root user
+renamed_mysql_root_user: mydbadmin
+# MySQL Root Password
+mysql_root_password: S4lm0nMySQLPa55word
+
+############################
+## Magento Database Details
+############################
+
+## Urls to configure within the target database
+host_name: www.yema.salmon.ltd.uk
+host_name_media: 
+host_name_skin: 
+host_name_js: 
+website_code_kz: kz
+website_code_kg: kg
+host_name_kz: kz.yema.salmon.ltd.uk
+host_name_kg: kg.yema.salmon.ltd.uk
+
+## Name of the MySQL Dump to restore
+db_dump_filename: yema_ci_dump.sql
+
+## Name of the Magento Application Database
+magento_database_name: magento
+
+## Credentials for the Application Database
+magento_database_username: magento
+magento_database_password: pa55word
+
+## Determines which "hosts" get access with the application username
+# should be overridden in host_vars
+magento_db_host_access:
+  localhost:
+    hoststring: localhost
+  fqdn:
+    hoststring: "{{ ansible_fqdn }}"
+  ipv4:
+    hoststring: 127.0.0.1
+  localvmhost:
+    hoststring: 192.168.56.1
+
+############################
+## Magento Database Application Configuration
+############################
+
+design_package_name: 7store
+design_theme_default: yema
+magento_solr_endpoint: 192.168.56.113
+magento_salmon_admin_password: salmon123
+
+############################
+## PHP Details
+############################
+
+## Set to install phpMyAdmin
+phpmyadmin_install: "true"
+
+## Set to install ioncude
+ioncube: "true"
+
+## Address for XDebug to listen on (port 9000)
+xdebug_listen_address: 192.168.56.1
+xdebug_enabled: 1
+
+## Unix user/group that own the php files
+unix_php_user: nginx
+unix_php_group: nginx
+
+## Values to insert into php.ini to configure open_basedir values
+php_open_basedir_string: "/data/magento/public/:/usr/share/pear/:/tmp/"
+
+## Values to insert into php.ini to configure max_execution_time
+php_max_execution_time_string: 300
+
+## Values to insert into php.ini to configure memory_limit
+php_memory_limit_string: 512M
+
+############################
+## IPTables Details
+############################
+
+#enable_iptables_mysql: true
+#enable_iptables_ntp: true
+#enable_iptables_memcache: true
+#enable_iptables_redis: true
+#enable_iptables_apache: false
+#enable_iptables_tomcat: false
+#enable_iptables_solr: true
+#enable_iptables_mvp_apache: true
+#enable_iptables_mvp_nginx: true
+#enable_iptables_nginx: true
+
+#common_ssh_whitelist:
+#  - 192.168.56.0/24
+#  - 172.17.28.0/24
+
+#apache_iptables_whitelist:
+#  - 192.168.56.0/24
+#  - 172.17.28.0/24
+
+#memcached_iptables_whitelist:
+#  - 192.168.56.0/24
+#  - 172.17.28.0/24
+#  - 127.0.0.1
+
+#mysql_iptables_whitelist:
+#  - 192.168.56.0/24
+#  - 172.17.28.0/24
+#  - 127.0.0.1
+
+#redis_iptables_whitelist:
+#  - 192.168.56.0/24
+#  - 172.17.28.0/24
+#  - 127.0.0.1
+
+#tomcat_iptables_whitelist:
+#  - 192.168.56.0/24
+#  - 172.17.28.0/24
+#  - 127.0.0.1
+#  - "{{ ansible_eth0.ipv4.address }}"
+
+#solr_iptables_whitelist:
+#  - 192.168.56.0/24
+#  - 172.17.28.0/24
+#  - 127.0.0.1
+#  - "{{ ansible_eth0.ipv4.address }}"
+
+#magento_iptables_whitelist:
+#  - 192.168.56.0/24
+#  - 172.17.28.0/24
+#  - 127.0.0.1
+
+############################
+## Salmon Users
+############################
+## List of available groups, select thoses that match the roles you are implementing
+### sysadmin  - created by common_useraccess role
+### vldtorgrp - created by common_useraccess role
+### tomcgrp   - created by install_tomcat7_sc role
+### apacheadm - created by install_apache role
+### nginxadm  - created by install_nginx role
+### redisadm  - created by install_redis role
+### mysqladm  - created by install_mysql and/or install_percona roles
+### phfpmadm  - created by install_phpfpm role
+
+# Salmon users
+salmon_users:
+  rmilnerwatts:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Richard Milner-Watts"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm,mysqladm"
+    state: present
+  irogers:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Ian Rogers"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm,mysqladm"
+    state: present
+  mserup:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Michael Serup"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm,mysqladm"
+    state: present
+  mevans:
+    password: $1$salmon$EA5qp8sMU5OCqNAB/i2LQ1
+    comment: "Michael Evans"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm,mysqladm"
+    state: present
+  dtrussler:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "David Trussler"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm,mysqladm"
+    state: present
+  tbell:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Trevor Bell"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm,mysqladm"
+    state: present
+  kovenden:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Kevin Ovenden"
+    groups: "mysqladm"
+    state: present
+  rdyke:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Rod Dyke"
+    groups: "mysqladm"
+    state: present
+  schoudhary:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Sunil Choudhary"
+    groups: "mysqladm"
+    state: present
+  eboyd:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Ed Boyd"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm"
+    state: present
+  mrowe:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Matt Rowe"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm"
+    state: present
+  crowe:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Charles Rowe"
+    groups: "sysadmin,vldtorgrp,tomcgrp,nginxadm,phfpmadm,redisadm"
+    state: present

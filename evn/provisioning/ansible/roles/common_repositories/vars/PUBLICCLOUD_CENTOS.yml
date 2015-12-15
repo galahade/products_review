@@ -1,0 +1,17 @@
+## PUBLICCLOUD_CENTOS vars for common_repositories
+
+---
+
+# RHEL 
+rhel6_6_web_repo_url:
+rhel6_6_web_repo_gpg:
+rhel6_6_web_updates_repo_url:
+rhel6_6_web_updates_repo_gpg:
+
+#EPEL
+epel_web_repo_url: http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/$basearch
+epel_web_repo_gpg: http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
+
+#IUS
+ius_web_repo_url: http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/$basearch
+ius_web_repo_gpg: http://dl.iuscommunity.org/pub/ius/IUS-COMMUNITY-GPG-KEY

@@ -1,0 +1,17 @@
+## SALMON_CENTOS vars for common_repositories
+
+---
+
+# RHEL 
+rhel6_6_web_repo_url:
+rhel6_6_web_repo_gpg:
+rhel6_6_web_updates_repo_url:
+rhel6_6_web_updates_repo_gpg:
+
+#EPEL
+epel_web_repo_url: http://chef.salmon.ltd.uk:8080/epel6/$basearch
+epel_web_repo_gpg: http://chef.salmon.ltd.uk:8080/epel6/RPM-GPG-KEY-EPEL-6
+
+#IUS
+ius_web_repo_url: http://chef.salmon.ltd.uk:8080/ius/stable/Redhat/6/$basearch
+ius_web_repo_gpg: http://chef.salmon.ltd.uk:8080/ius/IUS-COMMUNITY-GPG-KEY

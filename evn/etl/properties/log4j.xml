@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"> 
+    <appender name="console" class="org.apache.log4j.ConsoleAppender"> 
+        <param name="Target" value="System.out"/> 
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%d %-5p %c{1} - %m%n"/> 
+        </layout> 
+    </appender> 
+	
+	<appender name="fileAppender" class="org.apache.log4j.FileAppender"> 
+        <param name="File" value="${logfilename}" /> 
+        <param name="Append" value="true" /> 
+        <layout class="org.apache.log4j.PatternLayout"> 
+           <param name="ConversionPattern" value="%d %t %-5p %c{2} - %m%n"/> 
+        </layout> 
+    </appender> 
+	
+	<appender name="fileAppenderDebug" class="org.apache.log4j.FileAppender"> 
+        <param name="File" value="${logfilename}.debug" /> 
+        <param name="Append" value="true" /> 
+        <layout class="org.apache.log4j.PatternLayout"> 
+           <param name="ConversionPattern" value="%d %t %-5p %c{2} - %m%n"/> 
+        </layout> 
+    </appender> 
+	
+   <logger name="${log4jjobpackagename}" additivity="false" > 
+      <level value="INFO" /> 
+      <appender-ref ref="console"/> 
+	  <appender-ref ref="fileAppender"/>
+   </logger> 
+
+   <logger name="${log4jjobpackagename}" additivity="false" > 
+      <level value="DEBUG" />      
+	  <appender-ref ref="fileAppenderDebug"/>
+   </logger>
+   
+	<root> 
+        <priority value ="info" /> 
+        <appender-ref ref="console" />  
+    </root> 
+</log4j:configuration> 
+

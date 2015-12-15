@@ -1,0 +1,6 @@
+### Main Playbook for common_nmon role
+# file: roles/common_nmon/tasks/main.yml
+
+---
+
+- include: nmon_install.yml

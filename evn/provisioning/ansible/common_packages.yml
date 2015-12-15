@@ -1,0 +1,5 @@
+## Playbook for "Common Packages" Role
+# file: common_packages.yml
+- hosts: common_packages
+  roles:
+    - common_packages

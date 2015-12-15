@@ -1,0 +1,262 @@
+## HOST_VARS for a single-stack cloud image
+
+# Many of the options defined below are already the defaults, they are included here
+# as these are the ones that will commonly need to be adjusted.
+
+# This is intended as a template file that you should copy and adjust when spinning up
+# singlestack environments such as UAT.
+---
+
+## The host to build/manage - this must be overridden using --extra-vars
+ansible_ssh_host: 195.208.187.75
+
+## The user account to connect too on the remote server.  This assumes the standard 
+## "server prep" has been completed (i.e. account created, sudo rights granted and SSH keys)
+ansible_ssh_user: ansible
+
+## The project name
+project_key: yema
+
+## Using vagrant or not (Jenkins will hardcode this value to false in --extra-vars anyway)
+vagrant: "false"
+
+## phpmyadmin enabled 
+phpmyadmin_install: "true"
+
+## Used to determine which configuration files are deployed via the targeted mechanism
+env: yema-live
+
+## To be overridden in --extra-vars by Jenkins
+software_dest_tmp_dir: /jenkins/jobs/magento_project/workspace
+
+## Top Level directory that software should be installed in on the server
+install_toplevel_dir: /home/data
+
+######################
+## Repositories Default Configuration
+######################
+
+# Only enable IUS for a Vagrant Image, provision.sh handles EPEL earlier in the process
+repository_environment_name: PUBLICCLOUD_CENTOS
+enable_rhel: false
+enable_epel: false
+enable_ius: true
+
+######################
+## HOSTS Configuration
+######################
+
+etc_hosts_entries:
+  web1:
+    ipstring: "192.168.1.10"
+    hoststring: "ym-web1 www.ym.ru shop.ym.ru kg.ym.ru kz.ym.ru"
+  db1:
+    ipstring: "192.168.1.31"
+    hoststring: "ym-db1 mysql-prod"
+  db2:
+    ipstring: "192.168.1.32"
+    hoststring: "ym-db2"   
+  image:
+    ipstring: "192.168.1.51"
+    hoststring: "ym-photo1 media.ym.ru js.ym.ru skin.ym.ru"
+
+
+##################
+## Solr Details
+##################
+
+mvp_solr_cores:
+  mvp_catalog_core:
+    name: catalog
+    instancedir: core-catalog
+
+##################
+## MySQL Details
+##################
+
+## Enable SSL for network communications
+enable_ssl_mysql: false
+
+# Name for updated root user
+renamed_mysql_root_user: mydbadmin
+# MySQL Root Password
+mysql_root_password: twi3T449WSUutuy
+
+############################
+## Magento Database Details
+############################
+
+## Urls to configure within the target database
+host_name: shop.ym.ru
+host_name_media: media.ym.ru
+host_name_skin: skin.ym.ru
+host_name_js: js.ym.ru
+website_code_kz: kz
+website_code_kg: kg
+host_name_kz: kz.ym.ru
+host_name_kg: kg.ym.ru
+
+## Name of the MySQL Dump to restore
+db_dump_filename: yema_ci_dump.sql
+
+## Name of the Magento Application Database
+magento_database_name: magento
+
+## Credentials for the Application Database
+magento_database_username: magento
+magento_database_password: 458w90V3Uw2487w
+
+## Determines which "hosts" get access with the application username
+# should be overridden in host_vars
+magento_db_host_access:
+  localhost:
+    hoststring: localhost
+  fqdn:
+    hoststring: "{{ ansible_fqdn }}"
+  ipv4:
+    hoststring: '192.168.1.10'
+  webserver:
+    hoststring: 'ym-web1'
+
+############################
+## Magento Database Application Configuration
+############################
+
+design_package_name: 7store
+design_theme_default: yema
+magento_solr_endpoint: localhost
+magento_salmon_admin_password: 16MUH9031K87yWd
+
+############################
+## IPTables Details
+############################
+
+enable_iptables_mysql: true
+enable_iptables_ntp: true
+enable_iptables_redis: true
+enable_iptables_tomcat: false
+enable_iptables_solr: true
+
+common_ssh_whitelist:
+  - 95.172.74.0/24
+  - 212.187.228.0/24
+
+mysql_iptables_whitelist:
+  - 192.168.1.0/24
+  - 95.172.74.0/24
+  - 127.0.0.1 
+  - 212.187.228.0/24
+
+redis_iptables_whitelist:
+  - 192.168.1.0/24
+  - 95.172.74.0/24
+  - 127.0.0.1
+  - 212.187.228.0/24
+
+solr_iptables_whitelist:
+  - 192.168.1.0/24
+  - 95.172.74.0/24
+  - 127.0.0.1
+  - 212.187.228.0/24
+
+############################
+## Salmon Users
+############################
+
+# Salmon users
+salmon_users:
+  rmilnerwatts:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Richard Milner-Watts"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  irogers:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Ian Rogers"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  mserup:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Michael Serup"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  mevans:
+    password: $1$salmon$EA5qp8sMU5OCqNAB/i2LQ1
+    comment: "Michael Evans"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  dtrussler:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "David Trussler"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  tbell:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Trevor Bell"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  kovenden:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Kevin Ovenden"
+    groups: "sysadmin,mysqladm"
+    state: present
+  rdyke:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Rod Dyke"
+    groups: "mysqladm"
+    state: present
+  schoudhary:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Sunil Choudhary"
+    groups: "sysadmin,mysqladm"
+    state: present
+  eboyd:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Ed Boyd"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm"
+    state: present
+  mrowe:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Matt Rowe"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm"
+    state: present
+  crowe:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Charles Rowe"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm"
+    state: present
+  mbandohdanquah:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Milton Bandoh Danquah"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  ldobre:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Liviu Dobre"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  skhomenko:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Sergii Khomenko"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  mhill:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Mike Hill"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  akamau:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Andrew Kamau"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  fcarroll:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Fiona Carroll"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present
+  ssilman:
+    password: $1$salmon$3GsDR4NWxijsRBf40avgN.
+    comment: "Steve Silman"
+    groups: "sysadmin,vldtorgrp,tomcgrp,redisadm,mysqladm"
+    state: present

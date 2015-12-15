@@ -1,0 +1,10 @@
+# file: /group_vars/all
+# this is the site wide defaults
+
+---
+
+## Top Level directory that software should be installed in on the server
+install_toplevel_dir: /data
+
+## Base folder for deployment assets on the Ansible Server
+software_dest_tmp_dir: /data

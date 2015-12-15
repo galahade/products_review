@@ -1,0 +1,9 @@
+### Main Playbook for common_ntp role
+# file: roles/common_ntp/tasks/main.yml
+
+---
+
+- include: ntp_install.yml
+- include: ntp_iptables.yml
+  when: enable_iptables_ntp
+

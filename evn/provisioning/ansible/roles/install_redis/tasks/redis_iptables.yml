@@ -1,0 +1,24 @@
+### IPTables Playbook for Install Redis role
+# file: roles/install_redis/tasks/redis_iptables.yml
+
+---
+
+## Get the contents of the current IPTables configuration and store it
+- name: get iptables rules
+  shell: iptables -L
+  register: iptablesrules
+  always_run: yes
+  changed_when: false
+  sudo: true
+  tags: redis
+
+## Add an IPTables rule for Redis 
+- name: Add Redis Port to iptables
+  command: '/sbin/iptables -I INPUT -s {{ item }} -p tcp --dport {{ redis_port }} -j ACCEPT -m comment --comment "Redis_Port_{{ item }}"'
+  sudo: true
+  when: iptablesrules.stdout.find("Redis_Port_{{ item }}") == -1
+  with_items: redis_iptables_whitelist
+  notify:
+    - save iptables
+    - restart iptables
+  tags: redis

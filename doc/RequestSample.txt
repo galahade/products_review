@@ -1,0 +1,5 @@
+login:zcfjG
+/rest/user/{login}/review
+
+
+b8b8ce1a-b289-4338-b4a4-eacb04d8d63c

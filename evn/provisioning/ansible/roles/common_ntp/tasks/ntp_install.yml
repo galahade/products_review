@@ -1,0 +1,34 @@
+### Ntp Install Playbook for common ntp role
+# file: roles/common_ntp/tasks/ntp_install.yml
+
+---
+
+## Deploy the NTP configuration file
+- name: Deploy the NTP template
+  template: >
+    src=ntp.conf.j2
+    dest=/etc/ntp.conf
+    owner=root
+    group=root
+    mode=644
+  tags: ntp
+
+## Install NTP package
+#- name: Install NTP package
+#  yum: >
+#    name=ntp
+#    state=latest
+#  tags: ntp
+
+## Ensures ntp is installed
+- name: Ensure iptables is installed
+  shell: yum install -y ntp
+  tags: ntp
+
+## Ensure ntp is started and daemonised
+- name: Start NTP daemonised
+  service: >
+    name=ntpd
+    state=started
+    enabled=true
+  tags: ntp
