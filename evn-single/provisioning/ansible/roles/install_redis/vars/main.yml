@@ -1,0 +1,4 @@
+## vars for install_redis
+# file: roles/install_redis/vars/main.yml
+
+---

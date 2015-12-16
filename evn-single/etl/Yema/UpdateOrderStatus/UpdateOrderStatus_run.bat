@@ -1,0 +1,3 @@
+%~d0
+cd %~dp0
+java -Xms256M -Xmx1024M -cp .;../lib/routines.jar;../lib/log4j-1.2.16.jar;../lib/activation.jar;../lib/jax-qname.jar;../lib/jaxp-api.jar;../lib/jaxp-ri.jar;../lib/saaj-api.jar;../lib/saaj-impl.jar;../lib/jaxen-1.1.1.jar;../lib/mail-1.4.jar;../lib/ini4j-0.5.1.jar;../lib/talendcsv.jar;../lib/talend_file_enhanced_20070724.jar;../lib/jaxen-1.1.1.jar;../lib/activation.jar;../lib/saxon9.jar;../lib/jdom-1.1.jar;../lib/jsch-0.1.51.jar;../lib/dom4j-1.6.1.jar;../lib/jakarta-oro-2.0.8.jar;../lib/talend-soap.jar;../lib/mysql-connector-java-5.1.30-bin.jar;../lib/filecopy.jar;../lib/xpathutil-1.0.0.jar;updateorderstatus_0_5.jar;sendemail_0_1.jar; local_project.updateorderstatus_0_5.UpdateOrderStatus --context=linux %* 

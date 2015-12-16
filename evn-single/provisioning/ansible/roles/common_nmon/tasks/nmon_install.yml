@@ -1,0 +1,14 @@
+### Nmon Install Playbook for common nmon role
+# file: roles/common_nmon/tasks/common_nmon.yml
+
+---
+
+## Copies the Nmon binary from the Ansible server to the remote server
+- name: Install the Nmon binary
+  copy: >
+    src={{nmon_binary_file}}
+    dest=/usr/sbin/nmon
+    owner=root
+    group=root
+    mode=755
+  tags: nmon

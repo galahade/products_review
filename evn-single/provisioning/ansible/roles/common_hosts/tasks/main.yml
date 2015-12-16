@@ -1,0 +1,7 @@
+### Main Playbook for common_hosts role
+# file: roles/common_hosts/tasks/main.yml
+
+---
+
+- include: hosts_create.yml
+  when: etc_hosts_entries is defined

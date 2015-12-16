@@ -1,0 +1,6 @@
+---
+
+- include_vars: "{{repository_environment_name}}.yml"
+  when: repository_environment_name is defined
+
+- include: repositories_install.yml

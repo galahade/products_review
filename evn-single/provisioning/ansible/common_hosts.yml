@@ -1,0 +1,5 @@
+## Playbook for "Common Hosts" Role
+# file: common_hosts.yml
+- hosts: common_hosts
+  roles:
+    - common_hosts

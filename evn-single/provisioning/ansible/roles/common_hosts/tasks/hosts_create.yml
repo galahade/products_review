@@ -1,0 +1,18 @@
+### Create HOSTS entries Playbook for common hosts role
+# file: roles/common_hosts/tasks/hosts_create.yml
+
+---
+
+# Add HOSTS entries
+- name: Add entries to the /etc/hosts file
+  lineinfile: >
+    dest=/etc/hosts
+    state=present
+    create=yes
+    regexp="{{ item.value.ipstring }} .*"
+    line='{{ item.value.ipstring }} {{ item.value.hoststring }}'
+    owner=root
+    group=root
+    mode=0644
+  with_dict: etc_hosts_entries | default({})
+  tags: HOSTS

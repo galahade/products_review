@@ -1,0 +1,6 @@
+# file: roles/common_ntp/defaults/main.yml
+
+---
+
+## Security: enable IPTables rules for NTP
+enable_iptables_ntp: true

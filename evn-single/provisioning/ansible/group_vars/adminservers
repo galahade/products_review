@@ -1,0 +1,8 @@
+---
+# variables that relate to the 'adminservers'
+
+# auto deployment vars
+deployment_branch: master
+git_repo_url: git@github.com:SalmonLtd/magento-mvp.git
+ansible_inventory_file: master
+git_private_key: magento-mvp-auto-deployment

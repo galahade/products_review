@@ -1,0 +1,5 @@
+repository_environment_name: SALMON
+
+enable_rhel: true
+enable_epel: true
+enable_ius: true

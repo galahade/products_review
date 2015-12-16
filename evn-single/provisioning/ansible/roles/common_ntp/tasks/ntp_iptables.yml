@@ -1,0 +1,33 @@
+### IPTables Playbook for Common NTP role
+# file: roles/common_ntp/tasks/ntp_iptables.yml
+
+---
+
+## Get the contents of the current IPTables configuration and store it
+- name: get iptables rules
+  shell: iptables -L
+  register: iptablesrules
+  always_run: yes
+  changed_when: false
+  sudo: true
+  tags: ntp
+
+## Add inbound IPTables rule for ntp
+- name: Add ntp (udp) inbound rule to iptables
+  command: '/sbin/iptables -A INPUT -p udp --sport 123 -j ACCEPT -m comment --comment "ntp_inbound"'
+  sudo: true
+  when: iptablesrules.stdout.find("ntp_inbound") == -1
+  notify:
+    - save iptables
+    - restart iptables
+  tags: ntp
+
+## Add outbound IPTables rule for ntp
+- name: Add ntp (udp) outbound rule to iptables
+  command: '/sbin/iptables -A OUTPUT -p udp --dport 123 -j ACCEPT -m comment --comment "ntp_outbound"'
+  sudo: true
+  when: iptablesrules.stdout.find("ntp_outbound") == -1
+  notify:
+    - save iptables
+    - restart iptables
+  tags: ntp

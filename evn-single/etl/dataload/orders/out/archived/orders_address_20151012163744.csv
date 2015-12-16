@@ -1,0 +1,3 @@
+address_type|increment_id|customer_id|customer_address_id|email|prefix|firstname|middlename|lastname|suffix|street|city|postcode|region|region_id|country_id|telephone|fax|company|vat_id
+shipping|100000053|1|0|ldobre@salmon.com||John||Smith||140-142 Briggate|Leeds|LS1 6LS|region||RU|01582 222222||||
+billing|100000053|1|1|ldobre@salmon.com||asdasda||asdasda||asdsada|23232|2323|asdsadsa||RU|23232||||

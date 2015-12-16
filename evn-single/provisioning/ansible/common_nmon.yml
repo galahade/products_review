@@ -1,0 +1,5 @@
+## Playbook for "Common Nmon" Role
+# file: common_nmon.yml
+- hosts: common_nmon
+  roles:
+    - common_nmon

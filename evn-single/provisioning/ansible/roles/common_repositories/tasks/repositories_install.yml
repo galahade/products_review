@@ -1,0 +1,29 @@
+---
+
+- name: Required Package installation
+  yum: pkg={{ item }} state=present
+  with_items:
+    - libsemanage-python
+    - libselinux-python
+  tags: Repositories
+
+- name: Deploy Redhat 6 Repositories
+  template: >
+    src=rhel6.6-web.repo.j2
+    dest=/etc/yum.repos.d/rhel6-web.repo
+  when: enable_rhel
+  tags: Repositories
+
+- name: Deploy EPEL repositories
+  template: >
+    src=epel-web.repo.j2
+    dest=/etc/yum.repos.d/epel-web.repo
+  when: enable_epel
+  tags: Repositories
+
+- name: Deploy IUS Repositories
+  template: >
+    src=ius-web.repo.j2 
+    dest=/etc/yum.repos.d/ius-web.repo
+  when: enable_ius
+  tags: Repositories

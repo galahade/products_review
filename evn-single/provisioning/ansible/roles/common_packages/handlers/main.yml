@@ -1,0 +1,4 @@
+### Handlers for common_packages playbook
+# file: roles/common_packages/handlers/main.yml
+
+---

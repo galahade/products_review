@@ -1,0 +1,4 @@
+### Handlers for common_hosts playbook
+# file: roles/common_hosts/handlers/main.yml
+
+---

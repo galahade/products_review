@@ -1,0 +1,10 @@
+### Main Playbook for install_redis role
+# file: roles/install_redis/tasks/main.yml
+
+- include: redis_users.yml
+- include: redis_install.yml
+- include: redis_sudoers.yml
+
+## Run the IPTables tasks, if required this can be disabled by altering enable_iptables_redis in host_vars and set to false
+- include: redis_iptables.yml
+  when: enable_iptables_redis

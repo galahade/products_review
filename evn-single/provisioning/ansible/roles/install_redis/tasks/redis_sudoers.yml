@@ -1,0 +1,51 @@
+### Sudoers Playbook for Install_Redis role
+# file: roles/install_redis/tasks/redis_sudoers.yml
+
+---
+
+# Checks for the sudoers.d folder
+- name: Ensure /etc/sudoers.d directory is present
+  file: >
+    path=/etc/sudoers.d
+    state=directory
+  tags: redis
+
+# Ensures that sudoers.d is scanned for include files
+- name: Ensure /etc/sudoers.d is scanned by sudo
+  lineinfile: >
+    dest=/etc/sudoers
+    regexp="#includedir\s+/etc/sudoers.d"
+    line="#includedir /etc/sudoers.d"
+  tags: redis
+
+# Add mysql cmd_alias entries to our include file
+- name: Add cmnd_aliases to the /etc/sudoers.d/{{ sudoers_file }}
+  lineinfile: >
+    dest=/etc/sudoers.d/{{ sudoers_file }}
+    state=present
+    create=yes
+    regexp="Cmnd_Alias {{ item.value.alias }} .*"
+    line="Cmnd_Alias {{ item.value.alias }} = {{ item.value.command }}"
+  with_dict: redis_sudoers_cmnd_aliases
+  tags: redis
+
+# Assign rights to groups in our include file
+- name: Add groups to run cmnd_aliases to the /etc/sudoers.d/{{ sudoers_file }}
+  lineinfile: >
+    dest=/etc/sudoers.d/{{ sudoers_file }}
+    state=present
+    create=yes
+    regexp="%{{ item.value.group }} .* {{ item.value.cmnd_alias }}"
+    line="%{{ item.value.group }} ALL= {{ item.value.password }} {{ item.value.cmnd_alias }}"
+  with_dict: redis_sudoers_groups
+  tags: redis
+
+# Set permissions on sudoers include file
+- name: Ensure /etc/sudoers.d/{{ sudoers_file }} file has correct permissions
+  file: >
+    path=/etc/sudoers.d/{{ sudoers_file }}
+    mode=0440
+    state=file
+    owner=root
+    group=root
+  tags: redis

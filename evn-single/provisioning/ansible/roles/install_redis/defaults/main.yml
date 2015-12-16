@@ -1,0 +1,109 @@
+## Defaults for the install_redis playbook
+# file: roles/install_redis/defaults/main.yml
+
+---
+
+#########################
+## Redis Configuration
+#########################
+
+## Redis service name
+redis_service: redis
+
+## Redis Administration Group
+redis_admin_group: redisadm
+
+## Enable IPTables flag 
+enable_iptables_redis: true
+
+## Default values to whitelist for Redis Access
+redis_iptables_whitelist:
+  - 192.168.56.0/24
+  - 172.17.28.0/24
+  - 127.0.0.1
+
+### Bind address for Redis
+#redis_bind_address: "0.0.0.0"
+
+## Bind port for Redis
+redis_port: 6379
+
+## Redis Log File Name
+redis_logfile: /var/log/redis.log
+
+## Redis Syslog flag
+# Whether to log via rsyslog or directly
+redis_syslog_enabled: "yes"
+
+## Redis Syslog Level Must be USER or between LOCAL0-LOCAL7.
+redis_syslog_facility: "local0"
+
+## Redis DB tuning parameters
+redis_databases: 16
+redis_database_save_times:
+  - [900, 1]
+  - [300, 10]
+  - [60, 10000]
+redis_dbfilename: dump.rdb
+redis_db_dir: /data/redis
+
+## Maximum number of client connections supported
+redis_max_clients: 128
+
+## Maximum amount of memory Redis can use
+redis_max_memory: 512mb
+
+## Cache expiry/removal policy - see docs for more information
+redis_maxmemory_policy: volatile-lru
+
+## Setting for Redis disk flushing - see docs for more information
+redis_appendfsync: everysec
+
+## Kernel Parameter Values
+# check https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+# and http://redis.io/topics/faq
+redis_overcommit_memory: 1
+
+## Whether to require a password to access Redis
+redis_requirepass: false
+
+## If required, the password for Redis access
+redis_pass: 62Ed29_76Vvc587M-E77474gx5869DfJ
+
+
+#########################
+## Redis Master/Slave configuration
+#########################
+
+## Redis Role Type
+redis_role: master
+
+## If "redis_role" is set to slave, these values will be used to define the master for this slave
+redis_master_ip: 1.1.1.1
+redis_master_port: 6379
+redis_master_auth: None
+
+
+############################
+## Sudoers Section
+############################
+
+sudoers_file: salmon
+
+redis_sudoers_cmnd_aliases:
+  service_redis:
+    alias: SERVICE_REDIS
+    command: "/etc/init.d/{{redis_service}}"
+  svc_redis:
+    alias: SVC_REDIS
+    command: "/sbin/service {{redis_service}} *"
+
+redis_sudoers_groups:
+  redisadm_init:
+    group: "{{redis_admin_group}}"
+    password: ""
+    cmnd_alias: SERVICE_REDIS
+  redisadm_svc:
+    group: "{{redis_admin_group}}"
+    password: ""
+    cmnd_alias: SVC_REDIS

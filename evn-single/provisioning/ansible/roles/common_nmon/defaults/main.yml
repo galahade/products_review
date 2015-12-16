@@ -1,0 +1,10 @@
+# file: roles/common_nmon/defaults/main.yml
+
+---
+
+######################
+## NMON configuration Section
+######################
+
+nmon_binary_file: nmon_linux_x86_64
+

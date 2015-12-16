@@ -1,0 +1,5 @@
+## Playbook for "Common Repositories" Role
+# file: common_repositories.yml
+- hosts: common_repositories
+  roles:
+    - common_repositories

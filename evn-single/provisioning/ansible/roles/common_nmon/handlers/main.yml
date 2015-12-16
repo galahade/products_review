@@ -1,0 +1,4 @@
+### Handlers for common_nmon playbook
+# file: roles/common_nmon/handlers/main.yml
+
+---

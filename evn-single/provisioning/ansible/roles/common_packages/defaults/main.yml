@@ -1,0 +1,21 @@
+# file: roles/common_packages/defaults/main.yml
+
+---
+
+######################
+## Common Package configuration Section
+######################
+
+common_package_list:
+  - man
+  - curl
+  - postfix
+  - vim
+  - openssl
+  - telnet
+  - patch
+  - crontabs
+  - lsof
+  - iotop
+  - htop
+  - mlocate

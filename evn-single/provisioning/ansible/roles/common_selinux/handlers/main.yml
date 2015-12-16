@@ -1,0 +1,4 @@
+### Handlers for common_selinux playbook
+# file: roles/common_selinux/handlers/main.yml
+
+---

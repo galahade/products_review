@@ -1,0 +1,9 @@
+# file: roles/common_selinux/defaults/main.yml
+
+---
+
+# Selinux state (enforcing|permissive|disabled)
+selinux_state: permissive
+
+# Selinux policy
+selinux_policy: targeted

@@ -1,0 +1,8 @@
+- include: common_repositories.yml
+- include: common_selinux.yml
+- include: common_nmon.yml
+- include: common_hosts.yml
+- include: common_ntp.yml
+- include: common_packages.yml
+
+- include: install_redis.yml
