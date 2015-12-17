@@ -77,20 +77,28 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 
-  #Redis cluster1 VM.
+  #Redis Cluster1 VM.
   config.vm.define "cluster1" do |cluster1|
-    cluster1.vm.hostname = "redis-cluster1.dev"
+    cluster1.vm.hostname = "redis-cluster1"
     cluster1.vm.box = "bento/centos-6.7"
-    cluster1.vm.network :private_network, ip: "192.168.56.120"
+    cluster1.vm.network :private_network, ip: "192.168.1.11"
     cluster1.vm.provision :shell, :path => "provisioning/bash/redis-cluster1.sh"
   end
 
-  #Redis Slave VM.
+  #Redis Cluster2 VM.
   config.vm.define "cluster2" do |cluster2|
-    cluster2.vm.hostname = "redis-cluster2.dev"
+    cluster2.vm.hostname = "redis-cluster2"
     cluster2.vm.box = "bento/centos-6.7"
-    cluster2.vm.network :private_network, ip: "192.168.56.121"
+    cluster2.vm.network :private_network, ip: "192.168.1.12"
     cluster2.vm.provision :shell, :path => "provisioning/bash/redis-cluster2.sh"
+  end 
+  
+  #Redis Cluster3 VM.
+  config.vm.define "cluster3" do |cluster3|
+    cluster3.vm.hostname = "redis-cluster3"
+    cluster3.vm.box = "bento/centos-6.7"
+    cluster3.vm.network :private_network, ip: "192.168.1.13"
+    cluster3.vm.provision :shell, :path => "provisioning/bash/redis-cluster3.sh"
   end 
 
 end

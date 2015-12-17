@@ -21,8 +21,8 @@ public class LoadRandomDataToolTest {
 	}
 	
 	@Test
-	public void loadOneHundredProductTest() {
-		tool.loadProductData(10000);
+	public void loadOneHundredthousandProductTest() {
+		tool.loadProductData(100000);
 	}
 	
 	@Test

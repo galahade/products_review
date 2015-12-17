@@ -19,3 +19,4 @@ common_package_list:
   - iotop
   - htop
   - mlocate
+  - tcl

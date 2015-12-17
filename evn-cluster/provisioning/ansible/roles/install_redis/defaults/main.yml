@@ -70,6 +70,14 @@ redis_requirepass: false
 ## If required, the password for Redis access
 redis_pass: 62Ed29_76Vvc587M-E77474gx5869DfJ
 
+redis_config_template_name : redis.conf.j2
+
+######################
+## Redis Cluster Configuration
+######################
+redis_cluster : false
+redis_cluster_node_timeout : 5000
+redis_appendonly : no
 
 #########################
 ## Redis Master/Slave configuration

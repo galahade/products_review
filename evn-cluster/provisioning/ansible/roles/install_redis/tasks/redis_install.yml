@@ -6,16 +6,19 @@
   shell: "yum install -y {{ item }}"
   with_items:
     - libselinux-python
+    - ruby 
+    - rubygems
     - redis30u
   tags: redis
+  
+  # install redis gem to be able to run redis-trib.
+- name: Install Redis gem 
+  shell: "gem install redis"
+  tags: redis
 
-# Ensure rsyslog is available if specified
-#- name: Install rsyslog package
-#  yum: >
-#    pkg=rsyslog
-#    state=installed
-#  when: redis_syslog_enabled == "yes"
-#  tags: redis
+- name: copy redis-trib file
+  copy: src=redis-trib.rb dest=/usr/bin mode=0755
+  tags: redis
 
 # Ensure rsyslog is available if specified
 - name: Install rsyslog package
@@ -36,7 +39,7 @@
 # Copy the Redis template
 - name: Copy the redis configuration file 
   template: >
-    src=redis.conf.j2
+    src={{ redis_config_template_name }}
     dest=/etc/redis.conf
   notify: 
     - restart redis 

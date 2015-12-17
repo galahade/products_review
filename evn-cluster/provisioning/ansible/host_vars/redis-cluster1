@@ -38,3 +38,14 @@ etc_hosts_entries:
     ipstring: "{{ ansible_eth1.ipv4.address }}"
     hoststring: "{{ mvp_apache_servername }} mysql-prod js.yema.salmon.ltd.uk media.yema.salmon.ltd.uk skin.yema.salmon.ltd.uk"
 
+
+######################
+## Redis Configuration
+######################
+## Maximum amount of memory Redis can use
+redis_max_memory: 1024mb
+## Redi cluster config
+redis_cluster: true
+redis_cluster_node_timeout: 5000
+redis_appendonly: "yes"
+redis_config_template_name: "redis-cluster.conf.j2"
