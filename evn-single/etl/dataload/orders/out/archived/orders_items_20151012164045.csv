@@ -1,2 +1,0 @@
-order_id|product_id| sku | name | description | qty_ordered | product_type | weight | is_virtual | additional_data | applied_rule_ids | price | base_price | discount_amount | base_discount_amount | row_total | base_row_total | created_at
-100000053|17|test product 0918|test prod 0918||1.00|simple|1.5000|0|||1088.9000|100.0000|0.0000|0.0000|1088.9000|1088.9000|2015-10-12 15:33:21|
