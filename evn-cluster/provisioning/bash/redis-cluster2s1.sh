@@ -41,4 +41,4 @@ sudo find /data/deploy/certificates/ -type f -exec chmod 600 {} \;
 
 ## Execute Ansible
 echo Running provisioner: ansible
-ansible-playbook -c local -i /data/ansible/redis-cluster3 --sudo /data/ansible/site.yml
+ansible-playbook -c local -i /data/ansible/redis-cluster2s1 --sudo /data/ansible/site.yml

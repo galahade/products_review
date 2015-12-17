@@ -1,7 +1,7 @@
 ## HOST_VARS for development Vagrant Image
 ---
 
-ansible_ssh_host: 192.168.1.11
+ansible_ssh_host: 192.168.1.23
 
 ansible_ssh_user: vagrant
 
@@ -37,3 +37,4 @@ etc_hosts_entries:
   siteurl:
     ipstring: "{{ ansible_eth1.ipv4.address }}"
     hoststring: "{{ mvp_apache_servername }} mysql-prod js.yema.salmon.ltd.uk media.yema.salmon.ltd.uk skin.yema.salmon.ltd.uk"
+

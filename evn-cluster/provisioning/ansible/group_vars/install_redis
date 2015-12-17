@@ -1,2 +1,10 @@
 ### Group_Vars for install_redis rolebook
 # file: group_vars/install_redis
+
+## Maximum amount of memory Redis can use
+redis_max_memory: 1024mb
+## Redi cluster config
+redis_cluster: true
+redis_cluster_node_timeout: 5000
+redis_appendonly:  "yes"
+redis_config_template_name: "redis-cluster.conf.j2"

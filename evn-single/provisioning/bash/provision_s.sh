@@ -45,10 +45,10 @@ sudo find /data/deploy/certificates/ -type f -exec chmod 600 {} \;
 
 ## ETL: Simulate the deployment actions by copying ETL content to
 # /data/deploy/etl
-echo -e "Copying ETL Resources to staging area."
-sudo mkdir -p /data/deploy/etl
-sudo rm -rf /data/deploy/etl/*
-sudo cp -R /vagrant/etl/* /data/deploy/etl/
+#echo -e "Copying ETL Resources to staging area."
+#sudo mkdir -p /data/deploy/etl
+#sudo rm -rf /data/deploy/etl/*
+#sudo cp -R /vagrant/etl/* /data/deploy/etl/
 
 ## Execute Ansible
 echo Running provisioner: ansible
