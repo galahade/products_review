@@ -8,7 +8,10 @@
 #########################
 
 ## Redis service name
-redis_service: redis
+redis_service: redis-server
+
+## Redis file name
+reids_source_file: redis-3.0.5
 
 ## Redis Administration Group
 redis_admin_group: redisadm
@@ -54,7 +57,7 @@ redis_max_clients: 128
 redis_max_memory: 512mb
 
 ## Cache expiry/removal policy - see docs for more information
-redis_maxmemory_policy: volatile-lru
+redis_maxmemory_policy: noeviction
 
 ## Setting for Redis disk flushing - see docs for more information
 redis_appendfsync: everysec

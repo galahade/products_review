@@ -8,17 +8,35 @@
     - libselinux-python
     - ruby 
     - rubygems
-    - redis30u
   tags: redis
   
   # install redis gem to be able to run redis-trib.
 - name: Install Redis gem 
   shell: "gem install redis"
   tags: redis
+  
+  # Copy and unpackage redis gz file.
+- name: Copy and unpackage reids tar.gz file
+  unarchive: >
+    src={{ reids_source_file }}.tar.gz
+    dest=/tmp
+    
+  # Make and install redis.
+- name: Make and install reids.
+  shell: "make; make install"
+  args:
+    chdir: /tmp/{{ reids_source_file }}/
 
 - name: copy redis-trib file
   copy: src=redis-trib.rb dest=/usr/bin mode=0755
   tags: redis
+  
+- name: copy redis service config shell file
+  copy: src=redis-server dest=/etc/init.d/ mode=0755
+  notify: 
+    - restart redis 
+  tags: redis
+  
 
 # Ensure rsyslog is available if specified
 - name: Install rsyslog package
@@ -30,8 +48,6 @@
 - name: Ensure Redis DB directory exists
   file: >
     path={{ redis_db_dir }}
-    group=redis
-    owner=redis
     mode=755
     state=directory
   tags: redis

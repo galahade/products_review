@@ -48,7 +48,7 @@ timeout 0
 # verbose (many rarely useful info, but not a mess like the debug level)
 # notice (moderately verbose, what you want in production probably)
 # warning (only very important / critical messages are logged)
-loglevel notice
+loglevel debug
 
 # Specify the log file name. Also 'stdout' can be used to force
 # Redis to log on the standard output. Note that if you use standard
@@ -120,8 +120,9 @@ dir {{ redis_db_dir }}
 {% if redis_role == 'slave' %}
 slaveof {{ redis_master_ip }} {{ redis_master_port }}
 
+{% if redis_master_auth != 'None' %}
 masterauth {{ redis_master_auth }}
-
+{% endif %}
 slave-serve-stale-data yes
 
 {% endif %}
@@ -206,7 +207,7 @@ maxclients {{ redis_max_clients }}
 # limit for maxmemory so that there is some free RAM on the system for slave
 # output buffers (but this is not needed if the policy is 'noeviction').
 #
-maxmemory {{ redis_max_memory }}
+#maxmemory {{ redis_max_memory }}
 
 # MAXMEMORY POLICY: how Redis will select what to remove when maxmemory
 # is reached? You can select among five behavior:
@@ -257,7 +258,7 @@ maxmemory-policy {{ redis_maxmemory_policy }}
 # IMPORTANT: Check the BGREWRITEAOF to check how to rewrite the append
 # log file in background when it gets too big.
 
-appendonly no
+appendonly yes
 
 # The name of the append only file (default: "appendonly.aof")
 # appendfilename appendonly.aof

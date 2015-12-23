@@ -54,7 +54,7 @@ redis_max_clients: 128
 redis_max_memory: 512mb
 
 ## Cache expiry/removal policy - see docs for more information
-redis_maxmemory_policy: volatile-lru
+redis_maxmemory_policy: noeviction
 
 ## Setting for Redis disk flushing - see docs for more information
 redis_appendfsync: everysec
