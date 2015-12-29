@@ -1,7 +1,7 @@
 ## HOST_VARS for development Vagrant Image
 ---
 
-ansible_ssh_host: 192.168.1.12
+ansible_ssh_host: 192.168.56.12
 
 ansible_ssh_user: vagrant
 

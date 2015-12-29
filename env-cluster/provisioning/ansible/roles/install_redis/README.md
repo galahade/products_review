@@ -59,7 +59,7 @@ Boolean flag determining whether the IPTables configuration will be applied. Def
 
 ```
 redis_iptables_whitelist:
-  - 192.168.56.0/24
+  - 192.168.1.0/24
   - 172.17.28.0/24
 ```
 This list object contains the network ranges which should be added to IPTables to be granted access to the target server.  Note that this is obviously very sensitive to typos so take care when adjusting these entries.  These are defined in defaults but should be overridden in host_vars as required to allow other networks access (i.e. customer networks).

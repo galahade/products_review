@@ -1,10 +1,19 @@
 package com.yyang.project.ecommerce.config;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
+
+import com.lambdaworks.redis.RedisClient;
+import com.lambdaworks.redis.RedisURI;
+import com.lambdaworks.redis.cluster.ClusterClientOptions;
+import com.lambdaworks.redis.cluster.RedisClusterClient;
 
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -15,7 +24,7 @@ public class RedisConfig {
 	RedisConnectionFactory connectionFactory() {
 		JedisConnectionFactory connectionFactory = new JedisConnectionFactory();
 		connectionFactory.setHostName("192.168.56.120");
-		connectionFactory.setPoolConfig(jedisPoolConfig());
+		//connectionFactory.setPoolConfig(jedisPoolConfig());
 		connectionFactory.setUsePool(true);
 		return connectionFactory;
 	}
@@ -34,13 +43,27 @@ public class RedisConfig {
 		return new StringRedisTemplate(connectionFactory);
 	}
 	
-/*	@Bean 
-	RedisTemplate<String, User> userTemplate(RedisConnectionFactory connectionFactory) {
-		RedisTemplate<String, User> template = new RedisTemplate<String, User>();
-		template.setConnectionFactory(connectionFactory);
-		Jackson2JsonRedisSerializer<User> serializer = new Jackson2JsonRedisSerializer<>(User.class);
-		template.setValueSerializer(serializer);
-		return template;
-	}*/
+	@Bean
+	RedisClient redisClient() {
+		return RedisClient.create("redis://192.168.56.110:6379/0");
+	}
+	
+	@Bean
+	RedisClusterClient redisClusterClient() {
+		List<RedisURI> redisURIs = new ArrayList<RedisURI>();
+        redisURIs.add(RedisURI.create("redis://192.168.56.11:6379"));
+        redisURIs.add(RedisURI.create("redis://192.168.56.12:6379"));
+        redisURIs.add(RedisURI.create("redis://192.168.56.13:6379"));
+        redisURIs.add(RedisURI.create("redis://192.168.56.21:6379"));
+        redisURIs.add(RedisURI.create("redis://192.168.56.22:6379"));
+        redisURIs.add(RedisURI.create("redis://192.168.56.23:6379"));
+        RedisClusterClient redisClient = RedisClusterClient.create(redisURIs);
+        redisClient.setOptions(new ClusterClientOptions.Builder()
+                .refreshClusterView(true)
+                .refreshPeriod(1, TimeUnit.MINUTES)
+                .build());
+
+		return redisClient;
+	}
 
 }

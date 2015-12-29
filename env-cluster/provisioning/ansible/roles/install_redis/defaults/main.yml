@@ -24,6 +24,7 @@ redis_iptables_whitelist:
   - 192.168.56.0/24
   - 172.17.28.0/24
   - 127.0.0.1
+  - 0.0.0.0/24
 
 ### Bind address for Redis
 #redis_bind_address: "0.0.0.0"
