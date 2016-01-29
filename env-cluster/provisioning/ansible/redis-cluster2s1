@@ -1,31 +1,31 @@
 ## Ansible site file for redis-cluster
 
 [adminservers]
-redis-cluster2s1
+redis-node-5
 
 [common_selinux]
-redis-cluster2s1
+redis-node-5
 
 [common_repositories]
-redis-cluster2s1
+redis-node-5
 
 [common_nmon]
-redis-cluster2s1
+redis-node-5
 
 [common_hosts]
-redis-cluster2s1
+redis-node-5
 
 [common_ntp]
-redis-cluster2s1
+redis-node-5
 
 [common_packages]
-redis-cluster2s1
+redis-node-5
 
 [common_iptables]
-redis-cluster2s1
+redis-node-5
 
 [common_useraccess]
-redis-cluster2s1
+redis-node-5
 
 [install_redis]
-redis-cluster2s1
+redis-node-5

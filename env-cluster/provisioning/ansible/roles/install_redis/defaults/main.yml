@@ -52,7 +52,7 @@ redis_dbfilename: dump.rdb
 redis_db_dir: /data/redis
 
 ## Maximum number of client connections supported
-redis_max_clients: 128
+redis_max_clients: 100000
 
 ## Maximum amount of memory Redis can use
 redis_max_memory: 512mb

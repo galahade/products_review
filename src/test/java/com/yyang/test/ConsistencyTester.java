@@ -41,7 +41,7 @@ public class ConsistencyTester {
 	
 	private int not_ack_writes = 0;
 	
-	private int delay = 1000;
+	private int delay = 10;
 	
 	private String prefix;
 	
@@ -93,6 +93,7 @@ public class ConsistencyTester {
 			//Read
 			try{
 				String value = commands.get(key);
+				value = value == null ? "0" : value;
 				if(null != value) {
 					checkConsistency(key, value);
 				}

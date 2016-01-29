@@ -77,52 +77,12 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 
-  #Redis Cluster1 VM.
-  config.vm.define "cluster1" do |cluster1|
-    cluster1.vm.hostname = "redis-cluster1"
-    cluster1.vm.box = "bento/centos-6.7"
-    cluster1.vm.network :private_network, ip: "192.168.56.11"
-    cluster1.vm.provision :shell, :path => "provisioning/bash/redis-cluster1.sh"
-  end
-
-  #Redis Cluster2 VM.
-  config.vm.define "cluster2" do |cluster2|
-    cluster2.vm.hostname = "redis-cluster2"
-    cluster2.vm.box = "bento/centos-6.7"
-    cluster2.vm.network :private_network, ip: "192.168.56.12"
-    cluster2.vm.provision :shell, :path => "provisioning/bash/redis-cluster2.sh"
-  end 
-  
-  #Redis Cluster3 VM.
-  config.vm.define "cluster3" do |cluster3|
-    cluster3.vm.hostname = "redis-cluster3"
-    cluster3.vm.box = "bento/centos-6.7"
-    cluster3.vm.network :private_network, ip: "192.168.56.13"
-    cluster3.vm.provision :shell, :path => "provisioning/bash/redis-cluster3.sh"
-  end 
-  
-    #Redis Cluster1 Slave1 VM.
-  config.vm.define "cluster1s1" do |cluster1s1|
-    cluster1s1.vm.hostname = "redis-cluster1"
-    cluster1s1.vm.box = "bento/centos-6.7"
-    cluster1s1.vm.network :private_network, ip: "192.168.56.21"
-    cluster1s1.vm.provision :shell, :path => "provisioning/bash/redis-cluster1s1.sh"
-  end
-
-  #Redis Cluster2 Slave1 VM.
-  config.vm.define "cluster2s1" do |cluster2s1|
-    cluster2s1.vm.hostname = "redis-cluster2"
-    cluster2s1.vm.box = "bento/centos-6.7"
-    cluster2s1.vm.network :private_network, ip: "192.168.56.22"
-    cluster2s1.vm.provision :shell, :path => "provisioning/bash/redis-cluster2s1.sh"
-  end 
-  
-  #Redis Cluster3 Slave1 VM.
-  config.vm.define "cluster3s1" do |cluster3s1|
-    cluster3s1.vm.hostname = "redis-cluster3"
-    cluster3s1.vm.box = "bento/centos-6.7"
-    cluster3s1.vm.network :private_network, ip: "192.168.56.23"
-    cluster3s1.vm.provision :shell, :path => "provisioning/bash/redis-cluster3s1.sh"
-  end 
-
+	(1..6).each do |i|
+	  config.vm.define "redis-node-#{i}" do |node|
+	  	node.vm.hostname = "redis-node-#{i}"
+	    node.vm.box = "bento/centos-6.7"
+	    node.vm.network :private_network, ip: "192.168.56.1#{i}"
+	    node.vm.provision :shell, :path => "provisioning/bash/redis-node-#{i}.sh"
+	  end
+	end
 end

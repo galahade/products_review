@@ -26,7 +26,7 @@ sudo mkdir -p /etc/ansible
 printf '[vagrant]\nlocalhost\n' | sudo tee /etc/ansible/hosts > /dev/null
 
 
-## Workaround for Vagrant on Linux machines
+## Workaround for Vagrant on Windows machines
 # /vagrant is mounted as 777 which causes Ansible problems
 # therefore we move the Ansible content sideways and chmod it properly
 echo -e "Copying Ansible Resources to staging area. +++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -44,4 +44,4 @@ sudo find /data/deploy/certificates/ -type f -exec chmod 600 {} \;
 
 ## Execute Ansible
 echo -e "Running provisioner: ansible +++++++++++++++++++++++++++++++++++++++++++++++++"
-ansible-playbook -c local -i /data/ansible/redis-cluster1s1 --sudo /data/ansible/site.yml
+ansible-playbook -c local -i /data/ansible/redis-node-2 --sudo /data/ansible/site.yml
