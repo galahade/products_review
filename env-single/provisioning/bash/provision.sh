@@ -4,8 +4,6 @@
 # Run as part of Vagrant VM provisioning, this script replicates some of the functionality that 
 # is performed by Jenkins when installing a runtime environment.
 #
-# Author: Richard Milner-Watts/Sergii Khomenko
-# Date: 2015-05-26
 #
 #
 
@@ -52,4 +50,4 @@ sudo find /data/deploy/certificates/ -type f -exec chmod 600 {} \;
 
 ## Execute Ansible
 echo Running provisioner: ansible
-ansible-playbook -c local -i /data/ansible/redis-master --sudo /data/ansible/site.yml
+ansible-playbook -c local -i /data/ansible/$1 --sudo /data/ansible/site.yml
